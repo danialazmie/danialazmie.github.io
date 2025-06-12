@@ -1,361 +1,740 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muhammad Danial Bin Azmi | Data Scientist & AI Engineer</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2563eb',
+                        'secondary': '#1e40af',
+                        'accent': '#7c3aed',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-in': 'slideIn 0.5s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes bounceSubtle {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-gray-50 via-white to-blue-50">
 
     <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-content">
-          <div class="nav-logo">Danial Azmi</div>
-          <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-          </div>
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold gradient-text animate-fade-in">
+                    Danial Azmi
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-all duration-300 font-medium relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Experience
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Projects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Skills
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-all duration-300 font-medium relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                <button class="md:hidden text-gray-700 hover:text-primary" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-      </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t" id="mobile-menu">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="block py-2 text-gray-700 hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-primary transition-colors">Skills</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-      <div class="hero-container">
-        <h1>Muhammad Danial Bin Azmi</h1>
-        <p class="subtitle">Data Scientist & AI Engineer</p>
-        <p class="description">
-          Versatile Data Scientist with expertise in AI/ML solutions, RAG systems, and scalable data pipelines. 
-          Bridging the gap between complex technical challenges and business needs.
-        </p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Get In Touch</a>
-          <a href="https://www.linkedin.com/in/danial-azmi/" class="btn btn-outline">LinkedIn</a>
+    <header class="min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent opacity-10"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center animate-fade-in-up">
+                <!-- Profile Image -->
+                <div class="mb-8">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary to-accent p-1 animate-bounce-subtle">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-gray-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-4 leading-tight">
+                    Muhammad Danial
+                    <span class="gradient-text block">Bin Azmi</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-600 mb-6 font-medium">
+                    Data Scientist & AI Engineer
+                </p>
+                
+                <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Versatile Data Scientist with expertise in data insights, AI/ML solutions, LLM systems, and building scalable data pipelines. 
+                    Bridging the gap between complex technical challenges and business needs.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact" class="group px-8 py-4 bg-primary text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/danial-azmi/" class="px-8 py-4 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-gray-400 text-xl"></i>
+        </div>
     </header>
 
-    <main class="main-content space-y-16">
+    <main class="relative">
+        <!-- About -->
+        <section id="about" class="py-20 scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        About <span class="gradient-text">Me</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
+                </div>
+                
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 backdrop-blur-sm border border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                I'm a passionate Data Scientist and AI Engineer with a proven track record of designing and deploying 
+                                innovative AI/ML solutions across various industries. My expertise spans from developing sophisticated 
+                                chatbots with Retrieval-Augmented Generation (RAG) to building recommendation engines that drive user engagement.
+                            </p>
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                I specialize in integrating CI/CD best practices, managing end-to-end data pipelines, and creating 
+                                data visualizations that empower strategic decision-making. As a consultant, I excel at translating 
+                                complex technical concepts into actionable business solutions.
+                            </p>
+                            
+                            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-full font-semibold shadow-lg">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                YTM Scholar | Bachelor of Computer Science (Data Science)
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
+                                <div class="text-3xl font-bold text-primary mb-2">3+</div>
+                                <div class="text-gray-600">Years Experience</div>
+                            </div>
+                            <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
+                                <div class="text-3xl font-bold text-accent mb-2">15+</div>
+                                <div class="text-gray-600">Projects Completed</div>
+                            </div>
+                            <div class="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
+                                <div class="text-3xl font-bold text-green-600 mb-2">10+</div>
+                                <div class="text-gray-600">Technologies</div>
+                            </div>
+                            <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl">
+                                <div class="text-3xl font-bold text-orange-600 mb-2">3</div>
+                                <div class="text-gray-600">Companies</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <!-- About -->
-      <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-          <p>
-            I'm a passionate Data Scientist and AI Engineer with a proven track record of designing and deploying 
-            innovative AI/ML solutions across various industries. My expertise spans from developing sophisticated 
-            chatbots with Retrieval-Augmented Generation (RAG) to building recommendation engines that drive user engagement.
-          </p>
-          <p>
-            I specialize in integrating CI/CD best practices, managing end-to-end data pipelines, and creating 
-            data visualizations that empower strategic decision-making. As a consultant, I excel at translating 
-            complex technical concepts into actionable business solutions.
-          </p>
-          <div class="text-center">
-            <div class="scholar-badge">
-              🎓 YTM Scholar | Bachelor of Computer Science (Data Science)
-            </div>
-          </div>
-        </div>
-      </section>
+        <!-- Experience -->
+        <section id="experience" class="py-20 bg-gradient-to-r from-gray-50 to-blue-50 scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Professional <span class="gradient-text">Experience</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
+                </div>
 
-      <!-- Experience -->
-      <section id="experience" class="section">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="experience-grid">
-          
-          <!-- REV Media Group -->
-          <div class="experience-card">
-            <div class="experience-header">
-              <div>
-                <h3 class="experience-title">Data Scientist</h3>
-                <p class="experience-company">REV Media Group</p>
-              </div>
-              <div class="experience-date">Sep 2023 - Present</div>
-            </div>
-            <ul class="experience-list">
-              <li>Developed end-to-end multi-turn question-answering chatbot with Retrieval-Augmented
-                Generation (RAG) deployed via Python, GCP, FastAPI, and Haystack, enhancing customer
-                engagement across multiple channels (e.g., WhatsApp).</li>
-              <li>Introduced CI/CD tools and best practices on BitBucket, Vertex AI and Airflow, streamlining development lifecycle</li>
-              <li>Migrated on-premise ML models to Vertex AI platform (GCP) for enhanced monitoring, observability and automation</li>
-              <li>Built geolocational hyper-personalization recommendation engine</li>
-            </ul>
-          </div>
+                <div class="space-y-8">
+                    <!-- REV Media Group -->
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-primary">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">Data Scientist</h3>
+                                <p class="text-lg font-semibold text-gray-700">REV Media Group</p>
+                            </div>
+                            <div class="flex items-center space-x-2 mt-4 md:mt-0">
+                                <i class="fas fa-calendar text-gray-400"></i>
+                                <span class="text-gray-600 font-medium">Sep 2023 - Present</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Current</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
+                                <span>Developed end-to-end multi-turn question-answering chatbot with Retrieval-Augmented Generation (RAG) deployed via Python, GCP, FastAPI, and Haystack, enhancing customer engagement across multiple channels (e.g., WhatsApp).</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
+                                <span>Introduced CI/CD tools and best practices on BitBucket, Vertex AI and Airflow, streamlining development lifecycle</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
+                                <span>Migrated on-premise ML models to Vertex AI platform (GCP) for enhanced monitoring, observability and automation</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
+                                <span>Built geolocational hyper-personalization recommendation engine</span>
+                            </li>
+                        </ul>
+                    </div>
 
-          <!-- DataMicron -->
-          <div class="experience-card">
-            <div class="experience-header">
-              <div>
-                <h3 class="experience-title">Data Science Consultant</h3>
-                <p class="experience-company">DataMicron Systems Sdn. Bhd.</p>
-              </div>
-              <div class="experience-date">Feb 2023 - Sep 2023</div>
-            </div>
-            <ul class="experience-list">
-              <li>Spearheaded research and proof-of-concept (POC) product development to identify and
-              validate machine learning business use cases</li>
-              <li>Directly communicated with clients to identify challenges, and propose AI/ML solutions
-              addressing their complex problems</li>
-              <li>Oversaw end-to-end project life cycles from model development and deployment to
-              post-launch maintenance</li>
-            </ul>
-          </div>
+                    <!-- DataMicron -->
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-accent">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-accent mb-2 group-hover:text-purple-700 transition-colors">Data Science Consultant</h3>
+                                <p class="text-lg font-semibold text-gray-700">DataMicron Systems Sdn. Bhd.</p>
+                            </div>
+                            <div class="flex items-center space-x-2 mt-4 md:mt-0">
+                                <i class="fas fa-calendar text-gray-400"></i>
+                                <span class="text-gray-600 font-medium">Feb 2023 - Sep 2023</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                                <span>Spearheaded research and proof-of-concept (POC) product development to identify and validate machine learning business use cases</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                                <span>Directly communicated with clients to identify challenges, and propose AI/ML solutions addressing their complex problems</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                                <span>Oversaw end-to-end project life cycles from model development and deployment to post-launch maintenance</span>
+                            </li>
+                        </ul>
+                    </div>
 
-          <!-- MoneyLion -->
-          <div class="experience-card">
-            <div class="experience-header">
-              <div>
-                <h3 class="experience-title">Data Scientist</h3>
-                <p class="experience-company">MoneyLion Malaysia Sdn. Bhd.</p>
-              </div>
-              <div class="experience-date">Mar 2022 - Dec 2022</div>
+                    <!-- MoneyLion -->
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-secondary">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-secondary mb-2 group-hover:text-blue-700 transition-colors">Data Scientist</h3>
+                                <p class="text-lg font-semibold text-gray-700">MoneyLion Malaysia Sdn. Bhd.</p>
+                            </div>
+                            <div class="flex items-center space-x-2 mt-4 md:mt-0">
+                                <i class="fas fa-calendar text-gray-400"></i>
+                                <span class="text-gray-600 font-medium">Mar 2022 - Dec 2022</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Migrated ETL pipelines in Airflow and dbt from AWS to Snowflake</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Executed A/B testing experiments to enhance Natural Language Understanding (NLU) models and reduce costs</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Analyzed unstructured text data to understand consumer behavior</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Created interactive analytical dashboards for strategic decision-making</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <ul class="experience-list">
-              <li>Migrated ETL pipelines in Airflow and dbt from AWS to Snowflake</li>
-              <li>Executed A/B testing experiments to enhance Natural Language Understanding (NLU) models and reduce costs</li>
-              <li>Analyzed unstructured text data to understand consumer behavior</li>
-              <li>Created interactive analytical dashboards for strategic decision-making</li>
-            </ul>
-          </div>
+        </section>
 
-        </div>
-      </section>
+        <!-- Projects -->
+        <section id="projects" class="py-20 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Featured <span class="gradient-text">Projects</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"></div>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        A showcase of industrial and personal projects demonstrating expertise in AI/ML solutions
+                    </p>
+                </div>
 
-      <!-- Industrial Projects -->
-      <section id="projects" class="section">
-        <h2 class="section-title">Industrial Projects</h2>
-        <div class="projects-grid">
-          
-          <div class="project-card">
-            <div class="project-header primary">
-              <h3 class="project-title">RAG Chatbot</h3>
-            </div>
-            <div class="project-content">
-              <p class="project-description">
-                Developed end-to-end conversational AI system with Retrieval-Augmented Generation, 
-                deployed on GCP with FastAPI and Haystack integration
-                across multiple channels (WhatsApp, Web).
-              </p>
-              <div class="tags">
-                <span class="tag blue">Python</span>
-                <span class="tag blue">GCP</span>
-                <span class="tag blue">FastAPI</span>
-                <span class="tag blue">Haystack</span>
-                <span class="tag blue">Pydantic</span>
-              </div>
-            </div>
-          </div>
+                <!-- Industrial Projects -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Industrial Projects</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-secondary"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-robot text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-primary transition-colors">RAG Chatbot</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Developed end-to-end conversational AI system with Retrieval-Augmented Generation, 
+                                deployed on GCP and Pinecone using FastAPI and Haystack, integrated across multiple channels.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Pinecone</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">GCP</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">FastAPI</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Haystack</span>
+                            </div>
+                        </div>
 
-          <div class="project-card">
-            <div class="project-header secondary">
-              <h3 class="project-title">Recommendation Engine</h3>
-            </div>
-            <div class="project-content">
-              <p class="project-description">
-                Geolocational hyper-personalization system that significantly increased 
-                organic user engagement across multiple products.
-              </p>
-              <div class="tags">
-                <span class="tag green">TensorFlow</span>
-                <span class="tag green">Neural Networks</span>
-                <span class="tag green">Nominatim</span>
-                <span class="tag green">Personalization</span>
-              </div>
-            </div>
-          </div>
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary to-accent"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-brain text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-secondary transition-colors">Recommendation Engine</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Geolocational hyper-personalization system that significantly increased 
+                                organic user engagement across multiple products.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">TensorFlow</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Neural Networks</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Nominatim</span>
+                            </div>
+                        </div>
 
-          <div class="project-card">
-            <div class="project-header purple">
-              <h3 class="project-title">MLOps Pipeline</h3>
-            </div>
-            <div class="project-content">
-              <p class="project-description">
-                Migrated on-premise ML models to Vertex AI (GCP) with enhanced 
-                monitoring, observability, and CI/CD integration using Kubeflow and Docker.
-              </p>
-              <div class="tags">
-                <span class="tag purple">MLOps</span>
-                <span class="tag purple">CI/CD</span>
-                <span class="tag purple">Kubeflow</span>
-                <span class="tag purple">Docker</span>
-              </div>
-            </div>
-          </div>
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-accent to-pink-500"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-cogs text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-accent transition-colors">MLOps Pipeline</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Migrated on-premise ML models to Vertex AI (GCP) with enhanced 
+                                monitoring, observability, and CI/CD integration using Kubeflow and Docker.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">MLOps</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">CI/CD</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">Kubeflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        </div>
-      </section>
+                <!-- Personal Projects -->
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Personal Projects</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-secondary"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-graduation-cap text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-primary transition-colors">Tutor Chatbot</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Developed an AI chatbot on Discord that allows users to interact with a virtual tutor, 
+                                providing personalized learning experiences with LaTeX rendering for mathematical calculations.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Discord API</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Haystack</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">LaTeX</span>
+                            </div>
+                        </div>
 
-      <!-- Personal Projects -->
-      <section id="projects" class="section">
-        <h2 class="section-title">Personal Projects</h2>
-        <div class="projects-grid">
-          
-          <div class="project-card">
-            <div class="project-header primary">
-              <h3 class="project-title">Multi-turn RAG Chatbot</h3>
-            </div>
-            <div class="project-content">
-              <p class="project-description">
-                End-to-end conversational AI system with Retrieval-Augmented Generation, 
-                deployed on GCP with FastAPI and Haystack integration.
-              </p>
-              <div class="tags">
-                <span class="tag blue">Python</span>
-                <span class="tag blue">GCP</span>
-                <span class="tag blue">FastAPI</span>
-                <span class="tag blue">Haystack</span>
-              </div>
-            </div>
-          </div>
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary to-accent"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-image text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-secondary transition-colors">Fine-tuning ResNet50</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Fine-tuned a ResNet50 model on 1M+ images for image classification of e-commerce 
+                                product pictures, automatically classifying categories up to 3 levels deep.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">ResNet50</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Transfer Learning</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">CNN</span>
+                            </div>
+                        </div>
 
-          <div class="project-card">
-            <div class="project-header secondary">
-              <h3 class="project-title">Recommendation Engine</h3>
+                        <div class="group bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-accent to-pink-500"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-line text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-800 group-hover:text-accent transition-colors">Data Analytics Dashboard</h4>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Built comprehensive analytics dashboard for real-time data monitoring 
+                                and visualization with interactive charts and automated reporting features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">Streamlit</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">Plotly</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">Pandas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="project-content">
-              <p class="project-description">
-                Geolocational hyper-personalization system that significantly increased 
-                organic user engagement across multiple products.
-              </p>
-              <div class="tags">
-                <span class="tag green">ML</span>
-                <span class="tag green">Geolocation</span>
-                <span class="tag green">Personalization</span>
-              </div>
-            </div>
-          </div>
+        </section>
 
-          <div class="project-card">
-            <div class="project-header purple">
-              <h3 class="project-title">MLOps Pipeline</h3>
-            </div>
-            <div class="project-content">
-              <p class="project-description">
-                Migrated on-premise ML models to cloud infrastructure with enhanced 
-                monitoring, observability, and CI/CD integration.
-              </p>
-              <div class="tags">
-                <span class="tag purple">MLOps</span>
-                <span class="tag purple">CI/CD</span>
-                <span class="tag purple">Monitoring</span>
-              </div>
-            </div>
-          </div>
+        <!-- Skills -->
+        <section id="skills" class="py-20 bg-gradient-to-r from-gray-50 to-blue-50 scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Technical <span class="gradient-text">Skills</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"></div>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive expertise across the full data science and AI development stack
+                    </p>
+                </div>
 
-        </div>
-      </section>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 group-hover:text-primary transition-colors">Languages</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="font-medium text-gray-700">Python</span>
+                                <div class="bg-gray-200 rounded-full h-2 w-16">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="font-medium text-gray-700">SQL</span>
+                                <div class="bg-gray-200 rounded-full h-2 w-16">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="font-medium text-gray-700">JavaScript</span>
+                                <div class="bg-gray-200 rounded-full h-2 w-16">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="font-medium text-gray-700">Bash</span>
+                                <div class="bg-gray-200 rounded-full h-2 w-16">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      <!-- Skills -->
-      <section id="skills" class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-          
-          <div class="skill-card">
-            <h3 class="skill-title">Languages</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">Bash</span>
-            </div>
-          </div>
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 group-hover:text-accent transition-colors">AI/ML</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">LLMs</span>
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">GenAI</span>
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">TensorFlow</span>
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">Scikit-learn</span>
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">Hugging Face</span>
+                            <span class="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-semibold">PyTorch</span>
+                        </div>
+                    </div>
 
-          <div class="skill-card">
-            <h3 class="skill-title">AI/ML</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">LLMs</span>
-              <span class="skill-tag">GenAI</span>
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">Scikit-learn</span>
-              <span class="skill-tag">Hugging Face</span>
-            </div>
-          </div>
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-cloud text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 group-hover:text-green-600 transition-colors">Cloud & DevOps</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">GCP</span>
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">AWS</span>
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">Azure</span>
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">Docker</span>
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">Kubernetes</span>
+                            <span class="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">Terraform</span>
+                        </div>
+                    </div>
 
-          <div class="skill-card">
-            <h3 class="skill-title">Cloud & DevOps</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">GCP</span>
-              <span class="skill-tag">AWS</span>
-              <span class="skill-tag">Azure</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Kubernetes</span>
+                    <div class="group bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 group-hover:text-orange-600 transition-colors">Tools & Frameworks</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">FastAPI</span>
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">Haystack</span>
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">LangChain</span>
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">Airflow</span>
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">dbt</span>
+                            <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-semibold">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="skill-card">
-            <h3 class="skill-title">Tools & Frameworks</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">FastAPI</span>
-              <span class="skill-tag">Haystack</span>
-              <span class="skill-tag">LangChain</span>
-              <span class="skill-tag">Airflow</span>
-              <span class="skill-tag">dbt</span>
-            </div>
-          </div>
+        <!-- Contact -->
+        <section id="contact" class="py-20 scroll-mt-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Get In <span class="gradient-text">Touch</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"></div>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Ready to collaborate on your next data science project? Let's connect and discuss how I can help bring your ideas to life.
+                    </p>
+                </div>
 
-        </div>
-      </section>
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="group">
+                            <div class="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                                <i class="fas fa-envelope text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Email</h3>
+                            <a href="mailto:danial.azmiee@gmail.com" class="text-primary hover:text-secondary transition-colors font-semibold text-lg break-all">
+                                danial.azmiee@gmail.com
+                            </a>
+                        </div>
 
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-card">
-          <div class="contact-grid">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h3 class="contact-title">Email</h3>
-              <a href="mailto:danial.azmiee@gmail.com" class="contact-link">danial.azmiee@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                </svg>
-              </div>
-              <h3 class="contact-title">Phone</h3>
-              <a href="tel:+601123501468" class="contact-link">+6011 2350 1468</a>
-            </div>
-          </div>
-          <div class="contact-item contact-linkedin">
-            <div class="contact-icon">
-              <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </div>
-            <h3 class="contact-title">LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/danial-azmi/" class="contact-link">linkedin.com/in/danial-azmi</a>
-          </div>
-        </div>
-      </section>
+                        <div class="group">
+                            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                                <i class="fas fa-phone text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Phone</h3>
+                            <a href="tel:+601123501468" class="text-primary hover:text-secondary transition-colors font-semibold text-lg">
+                                +6011 2350 1468
+                            </a>
+                        </div>
 
+                        <div class="group">
+                            <div class="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                                <i class="fab fa-linkedin text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/danial-azmi/" target="_blank" class="text-primary hover:text-secondary transition-colors font-semibold text-lg">
+                                linkedin.com/in/danial-azmi
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full">
+                            <i class="fas fa-map-marker-alt text-gray-600 mr-2"></i>
+                            <span class="text-gray-700 font-medium">Petaling Jaya, Selangor, Malaysia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-      <p>&copy; 2025 Muhammad Danial Bin Azmi. All rights reserved.</p>
-      <p class="location">Petaling Jaya, Selangor, Malaysia</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div>
+                    <div class="text-2xl font-bold gradient-text mb-2">Danial Azmi</div>
+                    <p class="text-gray-400">Data Scientist & AI Engineer</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.linkedin.com/in/danial-azmi/" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:danial.azmiee@gmail.com" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-gray-400">&copy; 2025 Muhammad Danial Bin Azmi</p>
+                    <p class="text-gray-500 text-sm">All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script>
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        });
-      });
-    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-secondary transition-all duration-300 transform hover:scale-110 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-  </body>
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-lg', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-lg', 'shadow-lg');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
